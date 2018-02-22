@@ -10,7 +10,6 @@ from django.contrib.gis.geoip2 import GeoIP2
 class home(TemplateView):
     def get(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        x_forwarded_for = '128.101.101.101'
         try:
             if x_forwarded_for:
                 print ("returning FORWARDED_FOR")
@@ -22,7 +21,6 @@ class home(TemplateView):
                 print ("returning REMOTE_ADDR")
                 ip = request.META.get('REMOTE_ADDR')
         except:
-            ip = None
             x_forwarded_for = '128.101.101.101'
 
         print(ip)
