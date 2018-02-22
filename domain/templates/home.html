@@ -28,8 +28,10 @@
     <h1>Domain Search</h1>
     <p>Enter a query</p>
 
-    <form class="form-inline" method="get" action="/results" id="search">
+    <form class="form-inline" method="get" action="/results" %} id="search">
         <div class="input-group">
+{#            {% csrf_token %}#}
+{#            {{ form }}#}
             <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
             <div class="input-group-btn">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
