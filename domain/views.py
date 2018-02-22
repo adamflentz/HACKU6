@@ -2,9 +2,11 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.conf import settings
 from django.views.generic import TemplateView
 from django.contrib.gis.geoip2 import GeoIP2
 from .forms import DomainForm
+import requests, json
 # Create your views here.
 
 # Create your views here.
@@ -22,10 +24,12 @@ class home(TemplateView):
             else:
                 print ("returning REMOTE_ADDR")
                 ip = request.META.get('REMOTE_ADDR')
+                if ip == '127.0.0.1':
+                    x_forwarded_for = '128.101.101.101'
+                    ip = x_forwarded_for
         except:
             x_forwarded_for = '128.101.101.101'
 
-        ip = '128.101.101.101'
 
         print(ip)
         Geo = GeoIP2()
@@ -33,6 +37,34 @@ class home(TemplateView):
         print(currcity)
         lat = currcity.get('latitude')
         lng = currcity.get('longitude')
+        resp = requests.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + str(lat) + '&lng=' + str(
+            lng) + '&radius=30&username=tnraddatz')
+        if resp.status_code != 200:
+            # This means something went wrong.
+            print("ERROR:   ")
+            raise TimeoutError('GET /tasks/ {}'.format(resp.status_code))
+
+        # This tries to remove the pre-fix data "postalCodes" from JSON
+        # The goal is to convert the response into pure json
+        resp = resp.text
+        index = 0
+        print("hello")
+        for letter in resp:
+            if letter == "[":
+                resp = resp[index + 1:-2]
+                break
+            index += 1
+        resp = '[' + resp + ']'
+
+        resp = json.loads(resp)  # dictionary
+
+        respList = []
+        for name in resp:
+            i = 0
+            respList.append(name['placeName'])
+        respList = set(respList)
+        respList = list(respList)
+        print(respList)
         return render(request, 'home.html', locals())
 
 class results(TemplateView):
