@@ -58,7 +58,7 @@ s
 <div id="googleMap" style="width:100%;height:400px;"></div>
 <script>
 function myMap() {
-    var myCenter = new google.maps.LatLng(36.9307392, -76.3798048);
+    var myCenter = new google.maps.LatLng({{lat}}, {{lng}});
     var mapCanvas = document.getElementById("googleMap");
     var mapOptions = {center: myCenter, zoom: 10};
     var map = new google.maps.Map(mapCanvas, mapOptions);

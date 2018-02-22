@@ -23,9 +23,12 @@ class home(TemplateView):
                 ip = request.META.get('REMOTE_ADDR')
         except:
             ip = None
+            x_forwarded_for = '128.101.101.101'
 
         print(ip)
         Geo = GeoIP2()
         currcity = Geo.city(ip)
         print(currcity)
+        lat = currcity.get('latitude')
+        lng = currcity.get('longitude')
         return render(request, 'home.html', locals())
