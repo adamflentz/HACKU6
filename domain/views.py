@@ -25,7 +25,6 @@ class home(TemplateView):
         except:
             x_forwarded_for = '128.101.101.101'
 
-        ip = '128.101.101.101'
 
         print(ip)
         Geo = GeoIP2()
