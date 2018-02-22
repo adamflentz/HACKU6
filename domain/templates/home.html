@@ -30,21 +30,8 @@
 
     <form class="form-inline" method="get" action="/results" %} id="search">
         <div class="input-group">
-{#            {% csrf_token %}#}
-{#            {{ form }}#}
-            <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
-            <div class="input-group-btn">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                    <span class="selection">
-                        Domain
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">.autos</a></li>
-                    <li><a href="#">.boats</a></li>
-                    <li><a href="#">.homes</a></li>
-                    <li><a href="#">.yachts</a></li>
-                    <li><a href="#">.motorcycles</a></li>
-                </ul>
+            {% csrf_token %}
+            {{ form }}
                 <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>
             </div>
         </div>

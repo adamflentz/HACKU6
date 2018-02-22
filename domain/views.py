@@ -31,7 +31,7 @@ class home(TemplateView):
         print(currcity)
         lat = currcity.get('latitude')
         lng = currcity.get('longitude')
-        return render(request, 'home.html', locals())
+        return render(request, 'home.html', {'form': form})
 
 class results(TemplateView):
     def get(selfself, request):
