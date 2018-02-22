@@ -29,11 +29,11 @@
     <h1>Domain Search</h1>
     <p>Enter a query</p>
 
-    <form class="form-inline">
+    <form class="form-inline" method="get" action="/results" id="search">
         <div class="input-group">
-            <input type="searchContent" id="search" class="form-control" size="50" placeholder="Search Term" required>
+            <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>
             <div class="input-group-btn">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Domain
+                <button name="domain" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Domain
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">.autos</a></li>
@@ -42,7 +42,7 @@
                     <li><a href="#">.yachts</a></li>
                     <li><a href="#">.motorcycles</a></li>
                 </ul>
-                <button type="button" class="btn btn-danger" id="goButton" onclick="startSearch()">Go!</button>
+                <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>
             </div>
         </div>
     </form>

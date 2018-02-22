@@ -35,8 +35,9 @@ class home(TemplateView):
 
 class results(TemplateView):
     def get(self, request):
+        print(request.POST.get('search'))
         return render(request, "results.html",locals())
     def post(self, request):
         search = request.POST.get('search')
         print(search)
-        return 0
+        return render(request, "results.html", locals())
