@@ -45,6 +45,12 @@
             </div>
         </div>
     </form>
+     <script>
+        $(".dropdown-menu li a").click(function(){
+            $(this).parents(".input-group-btn").find('.selection').html($(this).text() + ' <span class="caret"></span>');
+            $(this).parents(".input-group-btn").find('.selection').val($(this).text());
+        });
+    </script>
 </div>
 
 <!-- Navbar -->
