@@ -4,6 +4,9 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.contrib.gis.geoip2 import GeoIP2
+
+
+
 # Create your views here.
 
 # Create your views here.
