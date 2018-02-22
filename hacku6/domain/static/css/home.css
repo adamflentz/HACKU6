@@ -1,3 +1,4 @@
-li a {
-    color: green;
+.jumbotron {
+    background-color: #ff8370; /* Orange */
+    color: #ffffff;
 }
