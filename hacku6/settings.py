@@ -25,7 +25,7 @@ SECRET_KEY = '3y&m8t9peqld0s*6a3j--18o#sg^l0ftz7hjkv&3(idxv9^-dj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agile-dawn-36056.herokuapp.com']
+ALLOWED_HOSTS = ['agile-dawn-36056.herokuapp.com', 'localhost']
 
 
 # Application definition

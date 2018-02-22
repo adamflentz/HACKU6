@@ -29,3 +29,7 @@ class home(TemplateView):
         if ip != '127.0.0.1':
             currcity = Geo.city(ip)
         return render(request, 'home.html', locals())
+
+class results(TemplateView):
+    def get(self, request):
+        return render(request, "results.html",locals())
