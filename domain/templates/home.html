@@ -30,9 +30,9 @@
 
     <form class="form-inline" method="get" action="/results" id="search">
         <div class="input-group">
-            <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
+            <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>
             <div class="input-group-btn">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Domain
+                <button name="domain" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Domain
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">.autos</a></li>
@@ -88,12 +88,6 @@
 <footer class="container-fluid text-center">
     <p>2018</p>
 </footer>
-
-<script>
-    function startSearch(){
-        location="results"
-    }
-</script>
 
 </body>
 </html>
