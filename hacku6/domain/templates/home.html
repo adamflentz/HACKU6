@@ -12,26 +12,52 @@
     <!-- stylesheet -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+
 </head>
 
 s
 <body>
+
 <!-- Page Header -->
 <div class="jumbotron text-center">
-  <h1>Test Post</h1>
-    <p>Please ignore</p>
+  <h1>Domain Search</h1>
+    <p>Welcome</p>
 
     <form class="form-inline">
     <div class="input-group">
-      <input type="searchContent" class="form-control" size="50" placeholder="Example URL" required>
+      <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Go!</button>
       </div>
     </div>
-
-  </form>
+    </form>
 </div>
 
+<!-- Navbar -->
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">W&M Team One</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- footer -->
+<footer class="container-fluid text-center">
+    <p>2018</p>
+</footer>
 
 
 </body>
