@@ -1,6 +1,7 @@
 .jumbotron {
     background-color: #ff8370;
     color: #ffffff;
+    font-family: 'Space Mono', monospace;
 }
 
 .navbar {
@@ -9,6 +10,7 @@
     border: 0;
     font-size: 15px !important;
     border-radius: 0;
+    font-family: 'Space Mono', monospace;
 }
 
 .navbar li a, .navbar .navbar-brand{

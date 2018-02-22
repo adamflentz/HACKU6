@@ -12,44 +12,53 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
 
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+
 </head>
 
-s
 <body>
 
 <!-- Page Header -->
 <div class="jumbotron text-center">
-  <h1>Domain Search</h1>
+    <h1>Domain Search</h1>
     <p>Enter a query</p>
 
     <form class="form-inline">
-    <div class="input-group">
-      <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger" id="goButton" onclick="startSearch()">Go!</button>
-      </div>
-    </div>
+        <div class="input-group">
+            <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
+            <div class="input-group-btn">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Domain
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+                <button type="button" class="btn btn-danger" id="goButton" onclick="startSearch()">Go!</button>
+            </div>
+        </div>
     </form>
 </div>
 
 <!-- Navbar -->
- <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">W&M Team One</a>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">W&M Team One</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Contact</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Contact</a></li>
-      </ul>
-    </div>
-  </div>
 </nav>
 
 
@@ -57,14 +66,14 @@ s
 <!-- Google Maps garbage to take up space -->
 <div id="googleMap" style="width:100%;height:400px;"></div>
 <script>
-function myMap() {
-    var myCenter = new google.maps.LatLng({{lat}}, {{lng}});
-    var mapCanvas = document.getElementById("googleMap");
-    var mapOptions = {center: myCenter, zoom: 10};
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-    var marker = new google.maps.Marker({position: myCenter});
-    marker.setMap(map);
-}
+    function myMap() {
+        var myCenter = new google.maps.LatLng({{lat}}, {{lng}});
+        var mapCanvas = document.getElementById("googleMap");
+        var mapOptions = {center: myCenter, zoom: 10};
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({position: myCenter});
+        marker.setMap(map);
+    }
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsr3HBQSVk4-HtwgsPiPyRJKpql1vt_Ok &callback=myMap"></script>
