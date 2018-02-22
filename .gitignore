@@ -1,3 +1,4 @@
 \hacku6\domain\__pycache__/
 \.idea/
 \tmp/*
+\ENV/*
