@@ -2,3 +2,4 @@
 \.idea/
 \tmp/*
 \ENV/*
+\GeoLite2-City_20180206/*
