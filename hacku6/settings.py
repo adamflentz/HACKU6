@@ -83,7 +83,7 @@ DATABASES = {
 
 # GeoIP
 
-GEOIP_PATH = '/home/adam/database/GeoLite2-City_20180206/GeoLite2-City.mmdb'
+GEOIP_PATH = os.path.join(BASE_DIR, 'GeoLite2-City_20180206/GeoLite2-City.mmdb')
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
