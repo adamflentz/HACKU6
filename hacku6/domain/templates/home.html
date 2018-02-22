@@ -1,5 +1,4 @@
 {% load staticfiles %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -12,26 +11,69 @@
     <!-- stylesheet -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+
 </head>
 
 s
 <body>
+
 <!-- Page Header -->
 <div class="jumbotron text-center">
-  <h1>Test Post</h1>
-    <p>Please ignore</p>
+  <h1>Domain Search</h1>
+    <p>Welcome</p>
 
     <form class="form-inline">
     <div class="input-group">
-      <input type="searchContent" class="form-control" size="50" placeholder="Example URL" required>
+      <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Go!</button>
       </div>
     </div>
-
-  </form>
+    </form>
 </div>
 
+<!-- Navbar -->
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">W&M Team One</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Google Maps garbage to take up space -->
+<div id="googleMap" style="width:100%;height:400px;"></div>
+<script>
+function myMap() {
+    var myCenter = new google.maps.LatLng(36.9307392, -76.3798048);
+    var mapCanvas = document.getElementById("googleMap");
+    var mapOptions = {center: myCenter, zoom: 10};
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var marker = new google.maps.Marker({position: myCenter});
+    marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsr3HBQSVk4-HtwgsPiPyRJKpql1vt_Ok &callback=myMap"></script>
+
+
+<!-- footer -->
+<footer class="container-fluid text-center">
+    <p>2018</p>
+</footer>
 
 
 </body>
