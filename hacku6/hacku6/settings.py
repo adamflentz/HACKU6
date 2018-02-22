@@ -83,7 +83,7 @@ DATABASES = {
 
 # GeoIP
 
-GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
+GEOIP_PATH = 'hacku6/geoip/GeoLite2-City.mmdb'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
