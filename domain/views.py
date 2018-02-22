@@ -3,14 +3,14 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.contrib.gis.geoip2 import GeoIP2    
-
+from django.contrib.gis.geoip2 import GeoIP2
 # Create your views here.
 
 # Create your views here.
 class home(TemplateView):
     def get(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        x_forwarded_for = '128.101.101.101'
         try:
             if x_forwarded_for:
                 print ("returning FORWARDED_FOR")
@@ -23,13 +23,16 @@ class home(TemplateView):
                 ip = request.META.get('REMOTE_ADDR')
         except:
             ip = None
+            x_forwarded_for = '128.101.101.101'
 
         print(ip)
         Geo = GeoIP2()
-        if ip != '127.0.0.1':
-            currcity = Geo.city(ip)
+        currcity = Geo.city(ip)
+        print(currcity)
+        lat = currcity.get('latitude')
+        lng = currcity.get('longitude')
         return render(request, 'home.html', locals())
 
 class results(TemplateView):
-    def get(self, request):
+    def get(selfself, request):
         return render(request, "results.html",locals())
