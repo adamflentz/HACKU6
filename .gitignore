@@ -1,5 +1,6 @@
-\hacku6\domain\__pycache__/
 \.idea/
 \tmp/*
 \ENV/*
 \GeoLite2-City_20180206/*
+\db.sqlite3
+__pycache__/
