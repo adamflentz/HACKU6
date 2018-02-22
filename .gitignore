@@ -1,4 +1,5 @@
-\hacku6\domain\__pycache__/
 \.idea/
 \tmp/*
 \ENV/*
+\db.sqlite3
+__pycache__/
