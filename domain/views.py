@@ -23,6 +23,8 @@ class home(TemplateView):
         except:
             x_forwarded_for = '128.101.101.101'
 
+        ip = '128.101.101.101'
+
         print(ip)
         Geo = GeoIP2()
         currcity = Geo.city(ip)
@@ -33,7 +35,9 @@ class home(TemplateView):
 
 class results(TemplateView):
     def get(self, request):
-        print(request.POST.get('search'))
+        query = request.GET.get("search")
+
+        print(query)
         return render(request, "results.html",locals())
 
     def post(self, request):
