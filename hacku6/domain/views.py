@@ -32,3 +32,7 @@ class home(TemplateView):
         lat = currcity.get('latitude')
         lng = currcity.get('longitude')
         return render(request, 'home.html', locals())
+
+class results(TemplateView):
+    def get(selfself, request):
+        return render(request, "results.html",locals())

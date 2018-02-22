@@ -19,4 +19,5 @@ from . import views
 urlpatterns = [
 
     url(r'^$', views.home.as_view()),
+    url(r'^results/', views.results.as_view()),
 ]

@@ -20,13 +20,13 @@ s
 <!-- Page Header -->
 <div class="jumbotron text-center">
   <h1>Domain Search</h1>
-    <p>Welcome</p>
+    <p>Enter a query</p>
 
     <form class="form-inline">
     <div class="input-group">
       <input type="searchContent" class="form-control" size="50" placeholder="Search Term" required>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Go!</button>
+        <button type="button" class="btn btn-danger" id="goButton" onclick="startSearch()">Go!</button>
       </div>
     </div>
     </form>
@@ -69,12 +69,16 @@ function myMap() {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsr3HBQSVk4-HtwgsPiPyRJKpql1vt_Ok &callback=myMap"></script>
 
-
 <!-- footer -->
 <footer class="container-fluid text-center">
     <p>2018</p>
 </footer>
 
+<script>
+    function startSearch(){
+        location="results"
+    }
+</script>
 
 </body>
 </html>
