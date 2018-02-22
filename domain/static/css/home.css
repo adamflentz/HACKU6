@@ -1,0 +1,33 @@
+.jumbotron {
+    background-color: #ff8370;
+    color: #ffffff;
+    font-family: 'Space Mono', monospace;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #ff8370;
+    border: 0;
+    font-size: 15px !important;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand{
+    color: #fff !important;
+    font-family: 'Space Mono', monospace;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #a04f43 !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.footer{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
