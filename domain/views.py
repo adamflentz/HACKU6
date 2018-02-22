@@ -4,12 +4,14 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.contrib.gis.geoip2 import GeoIP2
+from .forms import DomainForm
 # Create your views here.
 
 # Create your views here.
 class home(TemplateView):
     def get(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        form = DomainForm()
         try:
             if x_forwarded_for:
                 print ("returning FORWARDED_FOR")
