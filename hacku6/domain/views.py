@@ -11,15 +11,20 @@ from django.contrib.gis.geoip2 import GeoIP2
 class home(TemplateView):
     def get(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            print "returning FORWARDED_FOR"
-            ip = x_forwarded_for.split(',')[-1].strip()
-        elif request.META.get('HTTP_X_REAL_IP'):
-            print "returning REAL_IP"
-            ip = request.META.get('HTTP_X_REAL_IP')
-        else:
-            print "returning REMOTE_ADDR"
-            ip = request.META.get('REMOTE_ADDR')
+        try:
+            if x_forwarded_for:
+                print "returning FORWARDED_FOR"
+                ip = x_forwarded_for.split(',')[-1].strip()
+            elif request.META.get('HTTP_X_REAL_IP'):
+                print "returning REAL_IP"
+                ip = request.META.get('HTTP_X_REAL_IP')
+            else:
+                print "returning REMOTE_ADDR"
+                ip = request.META.get('REMOTE_ADDR')
+        except:
+            ip = None
+
         print(ip)
-        currcity = GeoIP2.city()
+        Geo = GeoIP2()
+        currcity = Geo.city(ip)
         return render(request, 'home.html', locals())
