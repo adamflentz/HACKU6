@@ -32,7 +32,9 @@
         <div class="input-group">
             <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>
             <div class="input-group-btn">
-                <button name="domain" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Domain
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="selection">
+                        Domain
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">.autos</a></li>
@@ -45,16 +47,17 @@
             </div>
         </div>
     </form>
-     <script>
+    <script>
         $(".dropdown-menu li a").click(function(){
             $(this).parents(".input-group-btn").find('.selection').html($(this).text() + ' <span class="caret"></span>');
             $(this).parents(".input-group-btn").find('.selection').val($(this).text());
+
         });
     </script>
 </div>
 
 <!-- Navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -72,6 +75,7 @@
         </div>
     </div>
 </nav>
+
 
 
 
