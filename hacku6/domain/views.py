@@ -26,5 +26,6 @@ class home(TemplateView):
 
         print(ip)
         Geo = GeoIP2()
-        currcity = Geo.city(ip)
+        if ip != '127.0.0.1':
+            currcity = Geo.city(ip)
         return render(request, 'home.html', locals())
