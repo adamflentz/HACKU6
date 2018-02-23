@@ -125,6 +125,7 @@ class results(TemplateView):
             resp = json.loads(resp)  # dictionary
 
             respList = []
+            domainOutput = []
             for name in resp:
                 i = 0
                 respList.append(name['placeName'].lower().replace(" ", "-"))  # can modify or add more keys if necessary
@@ -141,8 +142,8 @@ class results(TemplateView):
                 searchurl = 'http://api.datamuse.com/words?' + tag + '=' + query
                 print(searchurl)
                 meansLikeResponse = requests.get(searchurl)
-                responseText = meansLikeResponse.text.encode(encoding="UTF-8")
-                responseJson = json.loads(responseText)
+                #responseText = meansLikeResponse.text
+                responseJson = meansLikeResponse.json()
 
                 #take top 10 results from query and place in our final 'to search' list
                 count = 0
@@ -162,7 +163,10 @@ class results(TemplateView):
             header = "X-NAMESUGGESTION -APIKEY:676226de70489ae087ba1cd63cf9345a"
             for item in itemlist:
                 urlresponse = requests.get('https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name=' + item + '&tlds=' + extension)
-                print(urlresponse.text)
+                urljson = json.loads(urlresponse.text)
+                domainlist = urljson["results"]
+                domainOutput.append(domainlist[0])
+            print(domainOutput)
             return render(request, "results.html", locals())
 
 class about(TemplateView):

@@ -22,7 +22,6 @@
     <div style="color:#45A29E">
     <p>Results</p>
     </div>
-    <button type="button" class="btn btn-danger" onclick= "goHome()">Search Again</button>
 </div>
 
 <!-- Navbar -->
@@ -46,11 +45,21 @@
 </nav>
 
 <div class="container-fluid bg-3 text-center">
-    <div class="row">
-    <div class="col-sm-4">Column One</div>
-    <div class="col-sm-4">Column Two</div>
-    <div class="col-sm-4">Column Three</div>
+    <div class="col-sm-6">Domain
+    <ul>
+        {% for item in domainOutput %}
+            <li>{{ item.name }}</li>
+        {% endfor %}
+    </ul>
     </div>
+    <div class="col-sm-6">Availability
+    <ul>
+        {% for item in domainOutput %}
+            <li>{{ item.availability }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+<button type="button" class="btn btn-danger" onclick= "goHome()">Search Again</button>
 </div>
 
 <script>
