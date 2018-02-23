@@ -7,6 +7,7 @@ from django.http import HttpResponseBadRequest
 from django.views.generic import TemplateView
 from django.contrib.gis.geoip2 import GeoIP2
 from .forms import DomainForm
+from random import shuffle
 import requests, json
 # Create your views here.
 
@@ -139,6 +140,7 @@ class results(TemplateView):
             print(query)
             print("got data")
             itemlist = [query]
+            additionalItemList = []
             for item in respList:
                 itemlist.append(item + '-' + query)
             terms = ['ml', 'rel_jjb','rel_rhy'] #api search tags
@@ -153,13 +155,23 @@ class results(TemplateView):
                 #take top 10 results from query and place in our final 'to search' list
                 count = 0
                 for item in responseJson:
-                    if tag == 'ml' or tag == 'rel_rhy':
-                        itemlist.append(item["word"].replace(" ", "-"))
-                    elif tag == 'rel_jjb':
-                        itemlist.append(item["word"] + "-" +query)
-                    #add geo tags to our 'means like' queries
-                    if count == 4:
+                    #TAKE TOP 4 RESULTS AND USE THEM FOR ADDITIONAL SUGGESTIONS
+                    if count <= 4:
+                        if tag == 'ml' or tag == 'rel_rhy':
+                            itemlist.append(item["word"].replace(" ", "-"))
+                        elif tag == 'rel_jjb':
+                            itemlist.append(item["word"] + "-" +query)
+                    #TAKE TOP 20 AND FIND IF THE DOMAIN IS AVAILABLE
+                    elif count <= 20:
+                        if tag == 'ml':
+                            additionalItemList.append(item["word"].replace(" ", "-"))
+                        elif tag == 'rel_jjb':
+                            additionalItemList.append(item["word"] + "-" +query)
+                    #REMOVE ALL OTHER ITEMS > TOP 20
+                    else:
+                        shuffle(additionalItemList)
                         break
+
                     count += 1
             print(itemlist)
             header = "X-NAMESUGGESTION -APIKEY:676226de70489ae087ba1cd63cf9345a"
@@ -179,6 +191,21 @@ class results(TemplateView):
                     domainlist = urljson["results"]
                     domainOutput.append(domainlist[0])
                     domainOutput.append(domainlist[1])
+
+            addUrlString = ""
+            i = 0
+            for item in additionalItemList:
+                addUrlString += str(additionalItemList[i]) + ","
+                i += 1
+
+            additionalResponse = requests.get('https://sugapi.verisign-grs.com/ns-api/2.0/bulk-check?names=' + addUrlString + '&tlds=' + extension)
+            additionalJson = json.loads(additionalResponse.text)
+            print("\n \n \n")
+            print(additionalJson)
+            print("\n \n \n")
+            for item in additionalJson["results"]:
+                domainOutput.append(item)
+
             return render(request, "results.html", locals())
 
 class about(TemplateView):
