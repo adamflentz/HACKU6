@@ -127,14 +127,14 @@ class results(TemplateView):
             respList = []
             for name in resp:
                 i = 0
-                respList.append(name['placeName'])  # can modify or add more keys if necessary
+                respList.append(name['placeName'].lower().replace(" ", "-"))  # can modify or add more keys if necessary
             respList = set(respList)
             respList = list(respList)
             print(respList)
             query = domain
             print(query)
             print("got data")
-            itemlist = []
+            itemlist = [query]
             terms = ['ml', 'rel_jjb','rel_rhy'] #api search tags
             for tag in terms:
                 #call API and get the JSON file for our query
@@ -148,17 +148,21 @@ class results(TemplateView):
                 count = 0
                 for item in responseJson:
                     if tag == 'ml' or tag == 'rel_rhy':
-                        itemlist.append(item["word"].replace(" ", "_") + extension)
+                        itemlist.append(item["word"].replace(" ", "-"))
                     elif tag == 'rel_jjb':
-                        itemlist.append(item["word"] + "_" +query + extension)
+                        itemlist.append(item["word"] + "-" +query)
                     #add geo tags to our 'means like' queries
                     if count == 0 and tag == 'ml':
                         for element in respList:
-                            itemlist.append(element+ "_" + item["word"] + extension)
+                            itemlist.append(element+ "-" + item["word"])
                     if count == 9:
                         break
                     count += 1
             print(itemlist)
+            header = "X-NAMESUGGESTION -APIKEY:676226de70489ae087ba1cd63cf9345a"
+            for item in itemlist:
+                urlresponse = requests.get('https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name=' + item + '&tlds=' + extension)
+                print(urlresponse.text)
             return render(request, "results.html", locals())
 
 class about(TemplateView):
