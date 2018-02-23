@@ -31,32 +31,39 @@
     <div style="color:#45A29E">
     <p>Enter a query</p>
 
-    <form class="form-inline" method="get" action="/results" %} id="search">
-        <div class="input-group">
-            <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>
-            <div class="input-group-btn">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" select required>
-                    <span class="selection">
-                        .autos
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">.autos</a></li>
-                    <li><a href="#">.boats</a></li>
-                    <li><a href="#">.homes</a></li>
-                    <li><a href="#">.yachts</a></li>
-                    <li><a href="#">.motorcycles</a></li>
-                </ul>
-                <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>
-            </div>
-        </div>
+    <form class="form-inline" method="post" action="/results" %} id="test">
+        {% csrf_token %}
+        {{ form.domain }}
+        {{ form.extension }}
+        <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>
     </form>
-    <script>
-        $(".dropdown-menu li a").click(function(){
-            $(this).parents(".input-group-btn").find('.selection').html($(this).text() + ' <span class="caret"></span>');
-            $(this).parents(".input-group-btn").find('.selection').val($(this).text());
 
-        });
-    </script>
+{#    <form class="form-inline" method="get" action="/results" %} id="search">#}
+{#        <div class="input-group">#}
+{#            <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>#}
+{#            <div class="input-group-btn">#}
+{#                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" select required>#}
+{#                    <span class="selection">#}
+{#                        .autos#}
+{#                    <span class="caret"></span></button>#}
+{#                <ul class="dropdown-menu">#}
+{#                    <li><a href="#">.autos</a></li>#}
+{#                    <li><a href="#">.boats</a></li>#}
+{#                    <li><a href="#">.homes</a></li>#}
+{#                    <li><a href="#">.yachts</a></li>#}
+{#                    <li><a href="#">.motorcycles</a></li>#}
+{#                </ul>#}
+{#                <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </form>#}
+{#    <script>#}
+{#        $(".dropdown-menu li a").click(function(){#}
+{#            $(this).parents(".input-group-btn").find('.selection').html($(this).text() + ' <span class="caret"></span>');#}
+{#            $(this).parents(".input-group-btn").find('.selection').val($(this).text());#}
+{##}
+{#        });#}
+{#    </script>#}
 </div>
 
 <!-- Navbar -->

@@ -65,7 +65,7 @@ class home(TemplateView):
         respList = set(respList)
         respList = list(respList)
         print(respList)
-        return render(request, 'home.html', locals())
+        return render(request, 'home.html', {"locations": respList, "form": form, "lat": lat, "long": long})
 
 class results(TemplateView):
     def get(self, request):
