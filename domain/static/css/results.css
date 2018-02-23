@@ -1,3 +1,7 @@
+html,body{
+    height: 100%
+}
+
 body{
     /*background-color: #C5C6C7;*/
     background-color: #1F2833;

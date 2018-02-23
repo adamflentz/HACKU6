@@ -22,6 +22,7 @@
     <div style="color:#45A29E">
     <p>Results</p>
     </div>
+    <button type="button" class="btn btn-danger" onclick= "goHome()">Search Again</button>
 </div>
 
 <!-- Navbar -->
@@ -44,22 +45,13 @@
   </div>
 </nav>
 
-<div class="container-fluid bg-3 text-center">
-    <div class="col-sm-6">Domain
-    <ul>
+<div class="container bg-3 text-center">
+    <div class="col-sm-6 col-sm-offset-3">
+    <ul class="list-group">
         {% for item in domainOutput %}
-            <li>{{ item.name }}</li>
+            <li class="list-group-item">{{ item.name }}  [{{ item.availability }}]</li>
         {% endfor %}
     </ul>
-    </div>
-    <div class="col-sm-6">Availability
-    <ul>
-        {% for item in domainOutput %}
-            <li>{{ item.availability }}</li>
-        {% endfor %}
-    </ul>
-    </div>
-<button type="button" class="btn btn-danger" onclick= "goHome()">Search Again</button>
 </div>
 
 <script>
@@ -67,11 +59,5 @@
         location="/";
     }
 </script>
-<!-- footer -->
-<footer class="container-fluid text-center">
-    <div style="color:  #45A29E">
-    <p>HACKU6</p>
-    </div>
-</footer>
 </body>
 </html>
