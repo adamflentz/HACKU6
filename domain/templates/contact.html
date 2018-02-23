@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +15,51 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
-    <script src="{% static 'js/home.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
 <body>
-<p>
-    Contact Us
-Tommy Blackwell, tablackwell@email.wm.edu, https://github.com/tablackwell
-Dan Jelf, dkjelf@email.wm.edu, https://github.com/Dkjelf
-Adam Lentz, aflentz@email.wm.edu, https://github.com/adamflentz
-Thomas Raddatz, Tnraddatz@email.wm.edu, https://github.com/tnraddatz
-Matthew Swartz, mjswartz@email.wm.com, https://github.com/Matthew-Swartz
-www.HorseFishing.boat
-</p>
+<!-- Page Header -->
+<div class="jumbotron text-center">
+    <div style="color: #66FCF1">
+        <h2>Contact Us</h2>
+    </div>
+    <button type="button" class="btn btn-danger" onclick= "goHome()">Back</button>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">HACKU6</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+        <p align="center">
+            Tommy Blackwell, tablackwell@email.wm.edu, https://github.com/tablackwell </br>
+            Dan Jelf, dkjelf@email.wm.edu, https://github.com/Dkjelf </br>
+            Adam Lentz, aflentz@email.wm.edu, https://github.com/adamflentz </br>
+            Thomas Raddatz, Tnraddatz@email.wm.edu, https://github.com/tnraddatz </br>
+            Matthew Swartz, mjswartz@email.wm.com, https://github.com/Matthew-Swartz </br>
+        </br>
+            www.HorseFishing.boat
+        </p>
+<script>
+    function goHome(){
+        location="/";
+    }
+</script>
 </body>
 </html>
