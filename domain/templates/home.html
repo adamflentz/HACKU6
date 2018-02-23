@@ -31,11 +31,13 @@
     <div style="color:#45A29E">
     <p>Enter a query</p>
 
-    <form class="form-inline" method="get" action="/results" %} id="test">
-        {% csrf_token %}
-        {{ form.domain }}
-        {{ form.extension }}
-        <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>
+    <form class="form-inline" method="post" action="results/" id="test">
+        <div class="input-group-btn">
+            {% csrf_token %}
+            {{ form.domain }}
+            {{ form.extension }}
+            <input class="btn btn-danger" id="goButton" type="submit" value="Submit"></input>
+        </div>
     </form>
 
 {#    <form class="form-inline" method="get" action="/results" %} id="search">#}
@@ -63,7 +65,7 @@
 {#            $(this).parents(".input-group-btn").find('.selection').val($(this).text());#}
 {##}
 {#        });#}
-    </script>
+{#    </script>#}
     </div>
 </div>
 
