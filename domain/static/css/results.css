@@ -45,3 +45,10 @@ input{
     margin-bottom: 20px;
 
 }
+
+.list-group-item{
+    filter: alpha(opacity=50);
+    border-color: #66FCF1;
+    background-color: rgba(118, 119, 120, 0.26);
+    color:#fff;
+}
