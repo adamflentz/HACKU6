@@ -161,3 +161,11 @@ class results(TemplateView):
         search = request.POST.get('search')
         print(search)
         return render(request, "results.html", locals())
+
+class about(TemplateView):
+    def get(self, request):
+        return render(request, "about.html", locals())
+
+class contact(TemplateView):
+    def get(self, request):
+        return render(request,"contact.html",locals())
