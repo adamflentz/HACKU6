@@ -31,13 +31,13 @@
     <div style="color:#45A29E">
     <p>Enter a query</p>
 
-    <form class="form-inline" method="get" action="/results" %} id="search">
+    <form class="form-inline" method="get" action="/results" %} id="search"  target="_blank">
         <div class="input-group">
             <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>
-            <div class="input-group-btn">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" select required>
+            <div class="input-group-btn" >
+                <button name="div" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                     <span class="selection">
-                        .autos
+                        Domain
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">.autos</a></li>
@@ -53,9 +53,16 @@
     <script>
         $(".dropdown-menu li a").click(function(){
             $(this).parents(".input-group-btn").find('.selection').html($(this).text() + ' <span class="caret"></span>');
-            $(this).parents(".input-group-btn").find('.selection').val($(this).text());
-
+            $(this).parents(".input-group-btn").find('.selection').val($(this).text()) ;
+            
         });
+
+        $(function () { $('.dropdown-menu li a').on('click', function () {
+        var text = $('#text');
+        text.val(text.val() + dropdown-menu li a'.on('click');
+        });
+});
+
     </script>
 </div>
 
@@ -93,6 +100,9 @@
         var marker = new google.maps.Marker({position: myCenter});
         marker.setMap(map);
     }
+
+}
+
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsr3HBQSVk4-HtwgsPiPyRJKpql1vt_Ok &callback=myMap"></script>

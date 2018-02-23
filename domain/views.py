@@ -38,8 +38,9 @@ class home(TemplateView):
 class results(TemplateView):
     def get(self, request):
         query = request.GET.get("search")
-
+        domain = request.GET.get("domain")
         print(query)
+        print(domain)
         return render(request, "results.html",locals())
 
     def post(self, request):
