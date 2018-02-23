@@ -7,7 +7,6 @@
 
     <title>Domainion Project</title>
     <!-- Latest compiled and minified CSS -->
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -39,33 +38,6 @@
             <input class="btn btn-danger" id="goButton" type="submit" value="Submit"></input>
         </div>
     </form>
-
-{#    <form class="form-inline" method="get" action="/results" %} id="search">#}
-{#        <div class="input-group">#}
-{#            <input type="searchContent" name="search" class="form-control" size="50" placeholder="Search Term" required>#}
-{#            <div class="input-group-btn">#}
-{#                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" select required>#}
-{#                    <span class="selection">#}
-{#                        .autos#}
-{#                    <span class="caret"></span></button>#}
-{#                <ul class="dropdown-menu">#}
-{#                    <li><a href="#">.autos</a></li>#}
-{#                    <li><a href="#">.boats</a></li>#}
-{#                    <li><a href="#">.homes</a></li>#}
-{#                    <li><a href="#">.yachts</a></li>#}
-{#                    <li><a href="#">.motorcycles</a></li>#}
-{#                </ul>#}
-{#                <button type="submit" class="btn btn-danger" id="goButton" form="search" value="Submit">Go!</button>#}
-{#            </div>#}
-{#        </div>#}
-{#    </form>#}
-{#    <script>#}
-{#        $(".dropdown-menu li a").click(function(){#}
-{#            $(this).parents(".input-group-btn").find('.selection').html($(this).text() + ' <span class="caret"></span>');#}
-{#            $(this).parents(".input-group-btn").find('.selection').val($(this).text());#}
-{##}
-{#        });#}
-{#    </script>#}
     </div>
 </div>
 
@@ -101,6 +73,7 @@
         var mapCanvas = document.getElementById("map");
         mapCanvas.style.borderBottom = '10px solid #0B0C10';
         mapCanvas.style.borderTop = '10px solid #0B0C10';
+        {#modified dark theme from google tutorial#}
         var mapOptions = {center: myCenter, zoom: 10,  styles:
         [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
