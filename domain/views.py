@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.conf import settings
+from django.http import HttpResponseBadRequest
 from django.views.generic import TemplateView
 from django.contrib.gis.geoip2 import GeoIP2
 from .forms import DomainForm
@@ -169,9 +170,15 @@ class results(TemplateView):
                 print(urljson)
                 if urljson == {}:
                     print("empty")
-                domainlist = urljson["results"]
-                domainOutput.append(domainlist[0])
-            print(domainOutput)
+                if 'code' in urljson:
+                    if urljson["code"] == 1003:
+                        domainOutput.append({"name": item + extension, "availability": "not available"})
+                    if urljson["code"] == '999':
+                        domainOutput.append({"name": item + extension, "availability": "undetermined, query limit reached"})
+                    # return HttpResponseBadRequest("400 Error: Had issues querying Namestudio API. Try again in a minute.")
+                else:
+                    domainlist = urljson["results"]
+                    domainOutput.append(domainlist[0])
             return render(request, "results.html", locals())
 
 class about(TemplateView):
