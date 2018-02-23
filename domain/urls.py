@@ -20,4 +20,6 @@ urlpatterns = [
 
     url(r'^$', views.home.as_view()),
     url(r'^results/', views.results.as_view()),
+    url(r'^contact/', views.contact.as_view()),
+    url(r'^about/', views.about.as_view()),\
 ]
