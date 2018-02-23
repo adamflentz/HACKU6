@@ -81,6 +81,8 @@ class results(TemplateView):
         if form.is_valid():
             domain = form.cleaned_data['domain']
             extension = form.cleaned_data['extension']
+            if extension == None:
+                extension = ".autos"
             try:
                 if x_forwarded_for:
                     print ("returning FORWARDED_FOR")
@@ -164,6 +166,9 @@ class results(TemplateView):
             for item in itemlist:
                 urlresponse = requests.get('https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name=' + item + '&tlds=' + extension)
                 urljson = json.loads(urlresponse.text)
+                print(urljson)
+                if urljson == {}:
+                    print("empty")
                 domainlist = urljson["results"]
                 domainOutput.append(domainlist[0])
             print(domainOutput)
