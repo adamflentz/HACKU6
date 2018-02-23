@@ -41,3 +41,12 @@ input{
     margin-bottom: 20px;
 
 }
+
+.dropdown-toggle{
+    padding: 5px 12px;
+    -moz-appearance: none;
+}
+
+.btn-danger{
+    font-family: 'Space Mono', monospace;
+}
