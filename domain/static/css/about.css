@@ -1,0 +1,46 @@
+body{
+    /*background-color: #C5C6C7;*/
+    background-color: #1F2833;
+}
+
+.jumbotron {
+    background-color: #1F2833;
+    font-family: 'Space Mono', monospace;
+}
+
+input{
+    font-family: 'Oswald', sans-serif;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    border: 0;
+    font-size: 15px !important;
+    background-color: #0B0C10;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand{
+    color: #C5C6C7 !important;
+    font-family: 'Space Mono', monospace;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #FF8370 !important;
+    background-color: #C5C6C7!important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.footer{
+    font-size: 20px;
+    margin-bottom: 20px;
+
+}
+p{
+   color: #FF8370;
+}

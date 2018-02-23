@@ -1,11 +1,17 @@
 body{
-    background-color: #C5C6C7;
+    /*background-color: #C5C6C7;*/
+    background-color: #1F2833;
 }
 
 .jumbotron {
     background-color: #1F2833;
     font-family: 'Space Mono', monospace;
 }
+
+input{
+    font-family: 'Oswald', sans-serif;
+}
+
 
 .navbar {
     margin-bottom: 0;
@@ -33,13 +39,5 @@ body{
 .footer{
     font-size: 20px;
     margin-bottom: 20px;
-
-}
-
-.container-fluid {
-    padding: 20px 50px;
-}
-
-.col-sm-4{
 
 }

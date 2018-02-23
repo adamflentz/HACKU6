@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +15,56 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
-    <script src="{% static 'js/home.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
 <body>
-<p>
-    About
-[groupphoto.midi]
-caption: Pictured above: Matthew Swartz, Thomas Raddatz, Dan Jelf, Thomas Blackwell, and Adam Lentz
-"DOMAINION" is a domain name suggestion engine built by Team Interpered Language Apologiests for Dominion Enterprises' Hack U 6 Hackathon.  The web app was built in a 48 hour period by a team from The College of William and Mary.  "DOMAINION" is built in Python with a Django framework and takes search queries and selected top level domain lists and returns a list of relevant available domain names to the user.
-Relevent APIs Used:
-Geonames
-Google Maps
-Datamuse
-NameStudio by Verisign
-</p>
+<!-- Page Header -->
+<div class="jumbotron text-center">
+    <div style="color: #66FCF1">
+        <h2>About us</h2>
+    </div>
+    <button type="button" class="btn btn-danger" onclick= "goHome()">Back</button>
+</div>
 
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="https://hackathon.university/">HACKU6</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        <p align="center">
+
+            caption: Pictured above: Matthew Swartz, Thomas Raddatz, Dan Jelf, Thomas Blackwell, and Adam Lentz </br>
+            "DOMAINION" is a domain name suggestion engine built by Team Interpered Language Apologists for Dominion Enterprises' </br>
+            Hack U 6 Hackathon.  The web app was built in a 48 hour period by a team from The College of William and Mary.  </br>
+            "DOMAINION" is built in Python with a Django framework and takes search queries and selected top level domain  </br>
+            lists and returns a list of relevant available domain names to the user. </br></br>
+            Relevent APIs Used:</br>
+            Geonames</br>
+            Google Maps</br>
+            Datamuse</br>
+            NameStudio by Verisign</br></p>
+
+<script>
+    function goHome(){
+        location="/";
+    }
+</script>
 </body>
 </html>
