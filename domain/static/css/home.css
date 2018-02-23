@@ -1,5 +1,6 @@
 body{
-    background-color: #C5C6C7;
+    /*background-color: #C5C6C7;*/
+    background-color: #1F2833;
 }
 
 .jumbotron {
@@ -7,6 +8,9 @@ body{
     font-family: 'Space Mono', monospace;
 }
 
+input{
+    font-family: 'Oswald', sans-serif;
+}
 
 
 .navbar {
@@ -35,4 +39,5 @@ body{
 .footer{
     font-size: 20px;
     margin-bottom: 20px;
+
 }
