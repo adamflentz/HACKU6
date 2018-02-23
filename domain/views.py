@@ -139,6 +139,8 @@ class results(TemplateView):
             print(query)
             print("got data")
             itemlist = [query]
+            for item in respList:
+                itemlist.append(item + '-' + query)
             terms = ['ml', 'rel_jjb','rel_rhy'] #api search tags
             for tag in terms:
                 #call API and get the JSON file for our query
@@ -156,10 +158,7 @@ class results(TemplateView):
                     elif tag == 'rel_jjb':
                         itemlist.append(item["word"] + "-" +query)
                     #add geo tags to our 'means like' queries
-                    if count == 0 and tag == 'ml':
-                        for element in respList:
-                            itemlist.append(element+ "-" + item["word"])
-                    if count == 9:
+                    if count == 4:
                         break
                     count += 1
             print(itemlist)
@@ -173,12 +172,13 @@ class results(TemplateView):
                 if 'code' in urljson:
                     if urljson["code"] == 1003:
                         domainOutput.append({"name": item + extension, "availability": "not available"})
-                    if urljson["code"] == '999':
+                    elif urljson["code"] == '999':
                         domainOutput.append({"name": item + extension, "availability": "undetermined, query limit reached"})
                     # return HttpResponseBadRequest("400 Error: Had issues querying Namestudio API. Try again in a minute.")
                 else:
                     domainlist = urljson["results"]
                     domainOutput.append(domainlist[0])
+                    domainOutput.append(domainlist[1])
             return render(request, "results.html", locals())
 
 class about(TemplateView):
